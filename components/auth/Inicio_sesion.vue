@@ -7,10 +7,10 @@
             <v-row>
               <v-col cols="12" lg="3" class="mx-auto">
                 <div style="text-align: center">
-                  <img src="../../static/images/LOGO-HORUS.png" alt="Fomag Logo" width="290px" height="100px" />
+                  <img src="../../static/images/LOGO_ECOIMAGEN.png" alt="Fomag Logo" width="390px" height="190px" />
                 </div>
 
-                <h2 style="color: white; text-align: center">Bienvenido</h2>
+                <h2 style="color: #125dad; text-align: center">Bienvenido</h2>
 
 
                 <v-col cols="12">
@@ -33,11 +33,11 @@
                         class="mb-2" color="success">Ingresar
                       </v-btn>
                     </v-col>
-                    <v-col cols="12">
+                    <!-- <v-col cols="12">
                       <v-btn block v-if="reset != true" @click="resetPassword()" color="warning">Recuperar
                         contraseña
                       </v-btn>
-                    </v-col>
+                    </v-col> -->
                   </v-row>
                 </v-card-actions>
 
@@ -92,7 +92,7 @@
 
 
     <div class="boton-flotante">
-      <boton-whatsapp :max-height="100" :max-width="100" />
+      <boton-whatsapp :max-height="200" :max-width="200" />
     </div>
   </v-app>
 </template>
@@ -104,6 +104,7 @@ import {
 } from "vuex";
 import botonWhatsapp from "@/components/globales/botonWhatsapp.vue";
 import RecuperacionContrasenaOperador from "./recuperacionContrasenaOperador/recuperacionContrasenaOperador.vue";
+import { contrasenaExpirada } from '~/services/auth';
 
 export default {
   name: "Login",
@@ -227,7 +228,7 @@ export default {
 </script>
 <style scoped>
 #background-login {
-  background-image: url("../../static/images/LOGIN-HORUS.jpg");
+  background-image: url("../../static/images/fondo-horus.png");
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -244,6 +245,7 @@ export default {
   position: fixed;
   bottom: 40px;
   right: 40px;
+  left: 200px;
   z-index: 9999;
 }
 </style>
