@@ -1,0 +1,4 @@
+const slugGlobal = '/auth'
+
+
+

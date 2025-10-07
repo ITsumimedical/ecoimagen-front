@@ -1,0 +1,315 @@
+<template>
+    <div>
+        <template>
+            <div class="text-center">
+                <v-dialog v-model="preload" persistent width="300">
+                    <v-card color="primary" dark>
+                        <v-card-text>
+                            Tranquilo procesamos tu solicitud !
+                            <v-progress-linear indeterminate color="white" class="mb-0"></v-progress-linear>
+                        </v-card-text>
+                    </v-card>
+                </v-dialog>
+            </div>
+        </template>
+        <v-data-table dense :headers="headers" :search="buscar" :items="responsables" sort-by="id" class="elevation-1"
+            disable-pagination :loading="loading" loading-text="Cargando..." hide-default-footer
+            no-data-text="Sin datos para mostrar">
+            <template v-slot:[`item.user.operador`]="{ item }">
+                {{
+                    `${item.user?.operador?.nombre || ''} ${item.user?.operador?.apellido || ''}`.trim() || 'Sin nombre'
+                }}
+            </template>
+            <template v-slot:top>
+                <v-card-title>
+                    <v-btn small color="boton" class="mb-2 white--text" @click="dialog = true; listarOperador()">
+                        Nuevo
+                        <v-icon>
+                            mdi-plus-circle-outline
+                        </v-icon>
+                    </v-btn>
+                    <v-spacer></v-spacer>
+                    <v-text-field v-model="buscar" label="Buscar" append-icon="mdi-magnify" hide-details single-line>
+                    </v-text-field>
+                </v-card-title>
+                <v-dialog v-model="dialog" max-width="800px">
+                    <v-container fluid class="pa-0">
+                        <v-card :loading="loading" :disable="loading">
+                            <v-card-title class="titulo">
+                                <span class="black--text text-h5">{{ titulo }}</span>
+                            </v-card-title>
+                            <form @submit.prevent="guardarResponsable">
+                                <v-card-text>
+                                    <v-container>
+                                        <v-row>
+                                            <v-col cols="12" sm="12" md="12">
+                                                <v-autocomplete dense :items="usersAll" item-text="nombre"
+                                                    item-value="user_id" v-model="responsable.user_id" label="Usuario"
+                                                    @change="actualizarCorreo">
+                                                </v-autocomplete>
+                                            </v-col>
+                                            <v-col cols="12" sm="12" md="12">
+                                                <v-text-field dense v-model="responsable.correo"
+                                                    label="Correo"></v-text-field>
+                                            </v-col>
+                                        </v-row>
+                                    </v-container>
+                                </v-card-text>
+                                <v-card-actions>
+                                    <v-spacer></v-spacer>
+                                    <v-btn small color="error" @click="close">
+                                        Cancelar
+                                    </v-btn>
+                                    <v-btn small color="boton" dark type="submit">
+                                        Guardar
+                                    </v-btn>
+                                </v-card-actions>
+                            </form>
+                        </v-card>
+                    </v-container>
+                </v-dialog>
+            </template>
+            <template v-slot:[`item.activo`]="{ item }">
+                <v-chip small :color="item.activo ? 'green' : 'red'" dark>
+                    {{ item.activo ? 'Activo' : 'Inactivo' }}
+                </v-chip>
+            </template>
+            <template v-slot:[`item.actions`]="{ item }">
+                <v-tooltip top>
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-icon color="warning" small class="mr-2" v-bind="attrs" v-on="on" @click="editar(item)">
+                            mdi-pencil
+                        </v-icon>
+                    </template>
+                    <span>Editar</span>
+                </v-tooltip>
+                <v-tooltip top>
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-icon :color="item.activo == 1 ? 'green' : 'red'" class="mr-2" v-bind="attrs" v-on="on"
+                            @click="cambiarEstadoResponsable(item)">
+                            {{ item.activo == 1 ? 'mdi-toggle-switch-off' : 'mdi-toggle-switch' }}
+                        </v-icon>
+                    </template>
+                    <span>{{ item.activo == 1 ? 'Desactivar' : 'Activar' }}</span>
+                </v-tooltip>
+            </template>
+        </v-data-table>
+        <v-row no-gutters style="background-color: white;">
+            <v-col md="8" lg="9" xl="10" sm="10" class="px-2">
+                <v-pagination v-model="pagina" class="my-4" :length="total" :total-visible="9"
+                    @input="listarResponsable">
+                </v-pagination>
+            </v-col>
+            <v-col md="3" lg="3" xl="1" sm="1" class="px-2" cols style="min-width: 100px">
+                <v-select class="my-4" v-model="opcionActual" :items="opciones" dense solo small
+                    @change="listarResponsable">
+                </v-select>
+            </v-col>
+        </v-row>
+    </div>
+</template>
+
+<script>
+export default {
+    middleware({
+        $can,
+        redirect
+    }) {
+        if (!$can('blog.pqrsf.menu')) {
+            return redirect('/');
+        }
+    },
+    name: 'WorkspaceJsonResponsablePqrComponentes',
+    data() {
+        return {
+            preload: false,
+            loading: false,
+            dialog: false,
+            buscar: '',
+            responsables: [],
+            responsable: {
+                correo: '',
+                user_id: ''
+            },
+            editedIndex: -1,
+            defecto: {
+                correo: '',
+                user_id: ''
+            },
+            paginate: {
+                total: 0,
+                page: 1
+            },
+            headers: [{
+                text: 'id',
+                sortable: false,
+                value: 'id'
+            },
+            {
+                text: 'Correo',
+                value: 'correo'
+            },
+            {
+                text: 'Nombre responsable',
+                value: 'user.operador'
+            },
+            {
+                text: 'Estado',
+                value: 'activo'
+            },
+            {
+                text: 'Acciones',
+                value: 'actions',
+                sortable: false
+            }
+            ],
+            usersAll: [],
+            pagina: 1,
+            total: 0,
+            opcionActual: 5,
+            opciones: [5, 10, 20, 50, 100]
+        };
+    },
+    mounted() {
+        this.listarResponsable();
+    },
+    computed: {
+        titulo() {
+            return this.editedIndex === -1 ? 'Crear responsable' : 'Editar responsable';
+        }
+    },
+    watch: {
+        dialogoBloqueos(val) {
+            val || this.cerrarDialogo();
+        }
+    },
+    methods: {
+        close() {
+            this.dialog = false;
+            this.$nextTick(() => {
+                this.responsable = Object.assign({}, this.defecto);
+                this.editedIndex = -1;
+            });
+            this.limpiarError();
+        },
+        listarResponsable() {
+            this.preload = true;
+            this.$axios.post('/responsable-pqrsf/listarTodos?page=' + this.pagina + '&cant=' + this.opcionActual).then(res => {
+                this.responsables = res.data.data;
+                this.total = res.data.last_page;
+                this.preload = false;
+            }).catch(error => {
+                this.$toast.error(error.response.data.mensaje);
+                this.preload = false;
+            });
+        },
+
+        cambiarEstadoResponsable(item) {
+            this.$swal({
+                title: "Atención!",
+                text: "¿Esta seguro de cambiar el estado?",
+                type: "info",
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.value) {
+                    this.preload = true;
+                    this.$axios
+                        .post(`responsable-pqrsf/cambiarEstado/${item.id}`, {
+                            estado_id: item.estado_id ? 1 : 2
+                        })
+                        .then(() => {
+                            this.$swal({
+                                title: "Éxito",
+                                text: "Se ha cambiado el estado con éxito",
+                                type: "success",
+                            });
+                            this.listarResponsable();
+                        })
+                        .catch((error) => {
+                            this.$toast.error('Error al cambiar el estado')
+                            console.error(error);
+                        })
+                        .finally(() => {
+                            this.preload = false;
+                        });
+                }
+            });
+        },
+        guardarResponsable() {
+            this.limpiarError();
+            if (this.editedIndex > -1) {
+                this.preload = true;
+                this.$axios.put('/responsable-pqrsf/actualizar/' + this.responsable.id, this.responsable).then(res => {
+                    this.$toast.success('Se ha creado el responsable exitosamente!.');
+                    this.listarResponsable();
+                    this.close();
+                    this.preload = false;
+                }).catch(error => {
+                    this.preload = false;
+                });
+            } else {
+                this.preload = true;
+                this.$axios.post('/responsable-pqrsf/crear', this.responsable).then(res => {
+                    this.$toast.success('Se ha creado el responsable exitosamente!.');
+                    this.listarResponsable();
+                    this.close();
+                    this.preload = false;
+                }).catch(error => {
+                    this.preload = false;
+                    if (error.response.data.mensaje) {
+                        this.$toast.error('No se ha podido crear el responsable');
+                    } else if (error.response.data) {
+                        this.ErrorEntrada(error.response.data);
+                    }
+                });
+            }
+        },
+        ErrorEntrada(errors) {
+            for (const key in this.errors) {
+                if (key in errors) {
+                    this.errors[key] = errors[key].join(',');
+                }
+            }
+        },
+        limpiarError() {
+            for (const key in this.errors) {
+                this.errors[key] = '';
+            }
+        },
+        editar(item) {
+            this.listarOperador();
+            this.editedIndex = 0;
+            this.responsable = Object.assign({}, item);
+            this.responsable.user_id = parseInt(item.user_id);
+            this.dialog = true;
+        },
+        listarOperador() {
+            this.loading = true;
+            this.$axios.get('/operador/listar').then(res => {
+                this.usersAll = res.data.map(op => {
+                    return {
+                        user_id: op.user_id,
+                        nombre: `${op.nombre} - ${op.apellido}`,
+                        email: op.email
+                    };
+                });
+                this.loading = false;
+            }).catch(error => {
+                this.loading = false;
+            });
+        },
+
+        actualizarCorreo() {
+            const selectedUser = this.usersAll.find(user => user.user_id === this.responsable.user_id);
+            if (selectedUser) {
+                this.responsable.correo = selectedUser.email;
+            }
+        }
+    }
+};
+
+</script>
