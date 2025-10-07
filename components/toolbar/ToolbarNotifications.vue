@@ -143,7 +143,7 @@ export default {
           ruta: n.ruta
         }));
       } catch (error) {
-        this.$toast.error('Ha ocurrido un error al buscar las notificaciones')
+        // this.$toast.error('Ha ocurrido un error al buscar las notificaciones')
       }
     },
 

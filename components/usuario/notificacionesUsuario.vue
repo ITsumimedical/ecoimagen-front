@@ -72,7 +72,7 @@ export default {
             if (data.accion === 'eliminar') {
                 this.buscarNotificaciones();
             } else {
-                this.mensajes.unshift(data);
+                // this.mensajes.unshift(data);
             }
         });
 
@@ -90,7 +90,7 @@ export default {
                 const res = await this.$axios.get("/notificaciones/listar");
                 this.mensajes = res.data;
             } catch (error) {
-                this.$toast.error('Ha ocurrido un error al buscar las notificaciones')
+                // this.$toast.error('Ha ocurrido un error al buscar las notificaciones')
             } finally{
                 this.setPreload(false);
             }
@@ -126,7 +126,7 @@ export default {
 
                 this.buscarNotificaciones();
             } catch (error) {
-                this.$toast.error("Ha ocurrido un error al eliminar la notificación");
+                // this.$toast.error("Ha ocurrido un error al eliminar la notificación");
             } finally {
                 this.loadingId = null;
             }
