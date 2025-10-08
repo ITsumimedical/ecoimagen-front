@@ -255,7 +255,7 @@
 								</v-col>
 
 								<v-col cols="12">
-									<v-alert class="text-center" dense text outlined type="warning"
+									<v-alert class="text-center" dense text outlined type="info"
 										icon="mdi-tooth"><b>Registrar
 											dientes del usuario</b></v-alert>
 
@@ -430,7 +430,7 @@
 						item-text="nombre" :loading="loading" item-value="id" label="Prestador*">
 					</v-autocomplete>
 					<!-- Mostrar el mensaje si listaPrestadores está vacío -->
-					<v-alert v-if="listaPrestadores.length === 0" type="warning" dense text>
+					<v-alert v-if="listaPrestadores.length === 0" type="info" dense text>
 						Este cups no se encuentra parametrizado en ningun contrato
 					</v-alert>
 				</v-card-text>

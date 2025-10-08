@@ -28,7 +28,7 @@
 
     <!-- Slot para mostrar un mensaje cuando no hay datos -->
     <template v-slot:no-data>
-      <v-alert type="warning">
+      <v-alert type="info">
         El prestador no contiene contratos.
       </v-alert>
     </template>

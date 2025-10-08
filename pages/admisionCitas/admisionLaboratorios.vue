@@ -42,7 +42,7 @@
 				</v-col>
 			</v-row>
 			<div dense v-if="afiliado && datosCita.length == 0" class="mt-2">
-				<v-alert text dense border="left" type="warning" icon="mdi-information-off-outline"
+				<v-alert text dense border="left" type="info" icon="mdi-information-off-outline"
 					class="text-center"><b>El afiliado no presenta ordenes</b></v-alert>
 			</div>
 

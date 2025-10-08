@@ -4,7 +4,7 @@
       :items-per-page="10" class="text-no-wrap" hide-default-footer :loading="loading.logs" @update:page="listarLogs">
       <!-- Mensaje si no hay datos -->
       <template v-slot:no-data>
-        <v-alert type="warning" color="warning" class="ma-4">
+        <v-alert type="info" color="warning" class="ma-4">
           Todas las citas han sido enviadas a Keiron.
         </v-alert>
       </template>

@@ -61,7 +61,7 @@
           v-if="afiliado.entidad.id !== 1 && afiliado.entidad.id !== 3"
         >
           <v-col cols="12" sm="12" md="12">
-            <v-alert border="left" dense text type="warning" icon="mdi-alert">
+            <v-alert border="left" dense text type="info" icon="mdi-alert">
               Señor usuario, en este momento no se puede imprimir su
               certificado de afiliación.
             </v-alert>

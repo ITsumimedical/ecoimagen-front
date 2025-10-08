@@ -171,7 +171,7 @@
         </tbody>
       </v-simple-table>
       <v-divider></v-divider>
-      <v-alert v-if="alertaMensaje" type="warning" dense text>
+      <v-alert v-if="alertaMensaje" type="info" dense text>
         {{ alertaMensaje }}
       </v-alert>
     </v-form>

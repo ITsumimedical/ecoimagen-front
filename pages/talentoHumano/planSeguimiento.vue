@@ -100,7 +100,7 @@
                 </v-col>
                 <v-col cols="12" sm="12">
                   <v-card elevation="0">
-                    <v-alert dense text :value="true" type="warning">
+                    <v-alert dense text :value="true" type="info">
                       Compromisos laborales de competencias con calificación inferior a 4 | <i
                         style="color:black">Despliegue cada item para
                         registrar o revisar seguimientos o compromisos por competencia</i>

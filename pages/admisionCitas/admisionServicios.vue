@@ -107,7 +107,7 @@
                         </v-data-table>
                         <v-row>
                             <v-col>
-                                <v-alert dense outlined type="warning">
+                                <v-alert dense outlined type="info">
                                     Por favor, indique su forma de pago
                                 </v-alert>
                             </v-col>

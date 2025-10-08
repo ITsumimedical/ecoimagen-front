@@ -40,7 +40,7 @@
             </v-col>
           </v-row>
           <v-card-text>
-            <v-alert dense text type="warning">
+            <v-alert dense text type="info">
               Reporte a nombre de {{$store.state.auth.datosUsuarioLogueado.nombre_completo}}
             </v-alert>
           </v-card-text>

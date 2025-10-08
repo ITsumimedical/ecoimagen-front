@@ -45,7 +45,7 @@
         <v-container>
           <template>
             <div>
-              <v-alert type="warning" outlined text dense>
+              <v-alert type="info" outlined text dense>
                 <v-row align="center">
                   <v-col class="grow">
                     <b>Nota:</b> Si necesitas ayuda para diferenciar los tipos de requerimientos, haz clic en el botón

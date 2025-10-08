@@ -248,7 +248,7 @@
         <!-- Modal Cancelación de Cita -->
         <v-dialog persistent v-model="dialogCancelacionConsulta" max-width="800px" scrollable>
             <v-card>
-                <v-alert dense text border="left" icon="mdi-calendar-remove" type="warning">
+                <v-alert dense text border="left" icon="mdi-calendar-remove" type="info">
                     <b>Cancelar Consulta</b>
                 </v-alert>
                 <v-card-text>

@@ -201,7 +201,7 @@
       </v-col>
     </v-row>
     <!-- DATOS ADICIONALES -->
-    <v-alert border="left" icon="mdi-tooltip-account" color="blue-grey" dense text type="warning"><b>Adicional</b>
+    <v-alert border="left" icon="mdi-tooltip-account" color="blue-grey" dense text type="info"><b>Adicional</b>
     </v-alert>
     <v-row dense>
       <v-col cols="12" sm="6" md="2">

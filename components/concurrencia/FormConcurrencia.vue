@@ -13,7 +13,7 @@
 
                 <!-- Ingreso concurrencia -->
                 <v-col cols="12"></v-col>
-                <v-alert dense text border="left" color="blue-grey" type="warning" icon="mdi-open-in-app">
+                <v-alert dense text border="left" color="blue-grey" type="info" icon="mdi-open-in-app">
                     Ingreso concurrencia</v-alert>
                 <v-row dense>
                     <v-col cols="12" sm="2" md="2">

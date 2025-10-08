@@ -163,7 +163,7 @@
 
           <v-dialog v-model="dialogReabrir" persistent width="1000">
             <v-card>
-              <v-alert dense text border="left" type="warning" icon="mdi-open-in-app">Reabrir caso</v-alert>
+              <v-alert dense text border="left" type="info" icon="mdi-open-in-app">Reabrir caso</v-alert>
               <v-card-text>
                 <v-col cols="12" md="12" sm="12">
                   <v-autocomplete v-model="reabrir.categoria" :items="categorias" item-text="nombre" item-value="id"

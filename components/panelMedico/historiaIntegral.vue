@@ -180,9 +180,9 @@
         <consentimientoInformadoAnestesiaComponent ref="RefDialogoConsentimientoComponent" :consultaId="parseInt(datos.id)" :datos-usuario="datos.afiliado" />
 
         <!-- HorusVoice Card Fija -->
-        <v-card v-if="dialog" class="horus-voice-card" elevation="8">
+        <!-- <v-card v-if="dialog" class="horus-voice-card" elevation="8">
             <HorusVoice @audioProcessed="manejarAudioProcesado" />
-        </v-card>
+        </v-card> -->
 
     </div>
 </template>
@@ -195,7 +195,7 @@ import HistoricoAlertasComponentVue from "../historia/antecedentesHistoria/Histo
 import HistoricoServiciosComponentVue from "../historia/antecedentesHistoria/HistoricoServiciosComponent.vue";
 import ordenamientoComponet from "~/components/ordenamiento/ordenamiento.vue";
 import consentimientoInformadoAnestesiaComponent from "@/components/consentimientos/consentimientoInformadoAnestesiaComponent.vue";
-import HorusVoice from '@/components/horus-voice/horus-voice-componente.vue';
+// import HorusVoice from '@/components/horus-voice/horus-voice-componente.vue';
 export default {
     props: {
         datos: {
@@ -210,7 +210,7 @@ export default {
         HistoricoServiciosComponentVue,
         ordenamientoComponet,
         consentimientoInformadoAnestesiaComponent,
-        HorusVoice
+        // HorusVoice
     },
     data() {
         return {

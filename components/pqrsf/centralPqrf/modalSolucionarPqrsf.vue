@@ -1,7 +1,7 @@
 <template>
     <v-dialog max-width="800px" v-model="mostrarModalSolucionar">
         <v-card>
-            <v-alert text dense border="left" type="warning" icon="mdi-file-document-check" class="text-center">
+            <v-alert text dense border="left" type="info" icon="mdi-file-document-check" class="text-center">
                 <b>Solucionar PQRF N° {{ pqrsf?.id }}</b>
             </v-alert>
             <v-card-text>

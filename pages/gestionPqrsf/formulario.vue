@@ -113,7 +113,7 @@
                                 color="success" value="success" hide-details></v-checkbox>
                         </v-col>
                         <v-col cols="12" sm="12" md="12">
-                            <v-alert v-if="!ley1581" type="warning" dense text border="left" icon="mdi-alert">
+                            <v-alert v-if="!ley1581" type="info" dense text border="left" icon="mdi-alert">
                                 Debe autorizar el uso de sus datos personales para continuar.
                             </v-alert>
                         </v-col>

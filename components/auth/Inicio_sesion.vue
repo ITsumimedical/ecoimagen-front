@@ -7,7 +7,7 @@
             <v-row>
               <v-col cols="12" lg="3" class="mx-auto">
                 <div style="text-align: center">
-                  <img src="../../static/images/LOGO_ECOIMAGEN.png" alt="Fomag Logo" width="390px" height="190px" />
+                  <img src="../../static/images/logoEcoimagen.png" alt="Fomag Logo" width="390px" height="290px" />
                 </div>
 
                 <h2 style="color: #125dad; text-align: center">Bienvenido</h2>

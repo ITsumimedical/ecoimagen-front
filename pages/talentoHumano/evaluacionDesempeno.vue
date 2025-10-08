@@ -184,7 +184,7 @@
           </tbody>
         </table>
         <br />
-        <v-alert text border="left" prominent type="warning" icon="mdi-information-variant-circle-outline">
+        <v-alert text border="left" prominent type="info" icon="mdi-information-variant-circle-outline">
           Al finalizar la evaluación de desempeño se generará el certificado
           de realización del proceso,
           <p><b>las competencias con calificación inferior a 4 (61% - 80%) generarán un registro

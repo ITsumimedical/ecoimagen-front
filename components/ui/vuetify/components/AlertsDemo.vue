@@ -8,7 +8,7 @@
       I'm an info alert.
     </v-alert>
 
-    <v-alert type="warning">
+    <v-alert type="info">
       I'm a warning alert.
     </v-alert>
 
@@ -68,7 +68,7 @@
     <v-alert
       border="bottom"
       colored-border
-      type="warning"
+      type="info"
       elevation="2"
     >
       Sed in libero ut nibh placerat accumsan. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis.

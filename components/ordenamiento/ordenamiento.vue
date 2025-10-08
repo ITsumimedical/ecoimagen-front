@@ -124,7 +124,7 @@
                         afiliado.tipo_afiliado_id === 3 ||
                         afiliado.tipo_afiliado_id === 6
                     ">
-                        <v-alert dense text border="left" type="warning">
+                        <v-alert dense text border="left" type="info">
                             <b>El afiliado es BENEFICIARIO por lo tanto no tiene derecho a
                                 INCAPACIDADES</b>
                         </v-alert>

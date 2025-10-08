@@ -2,7 +2,7 @@
     <div>
         <v-form ref="PersonaSocial" lazy-validation>
         <v-col cols="12" sm="12" md="12">
-            <v-alert class="text-center" dense text type="warning" icon="mdi-book-open-page-variant">
+            <v-alert class="text-center" dense text type="info" icon="mdi-book-open-page-variant">
                 <b>PERSONA SOCIAL</b>
             </v-alert>
         </v-col>

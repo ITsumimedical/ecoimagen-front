@@ -329,14 +329,14 @@
 
                                 <v-card-actions>
                                     <v-col cols="12" sm="8" md="8" v-if="accion === 'Eliminación bloque'">
-                                        <v-alert dense text border="left" type="warning">
+                                        <v-alert dense text border="left" type="info">
                                             Sólo se han de eliminar del bloque las agendas
                                             <b>DISPONIBLES</b> o <b>BLOQUEADAS</b> del día seleccionado
                                         </v-alert>
                                     </v-col>
 
                                     <v-col cols="12" sm="8" md="8" v-if="accion === 'Bloqueo bloque'">
-                                        <v-alert dense text border="left" type="warning">
+                                        <v-alert dense text border="left" type="info">
                                             Sólo se han de bloquear del calendario las agendas en estado
                                             <b>DISPONIBLES</b> del día seleccionado
                                         </v-alert>

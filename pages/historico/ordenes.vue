@@ -1174,7 +1174,7 @@
             <!-- Mostrar el mensaje si listaPrestadores está vacío -->
             <v-alert
               v-if="listaPrestadores.length === 0"
-              type="warning"
+              type="info"
               dense
               text
             >

@@ -3,7 +3,7 @@
         <!-- Suspension -->
         <v-dialog persistent v-model="mostrarSuspensionModal" max-width="700">
             <v-card>
-                <v-alert text dense border="left" type="warning" icon="mdi-file-document-remove-outline">
+                <v-alert text dense border="left" type="info" icon="mdi-file-document-remove-outline">
                     <b>Información de la Suspensión</b>
                 </v-alert>
                 <v-card-text>

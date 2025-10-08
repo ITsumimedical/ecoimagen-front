@@ -21,7 +21,7 @@
                             </v-list-item-content>
                         </v-list-item>
                     </v-list>
-                    <v-alert border="left" dense text type="warning" icon="mdi-information-box"
+                    <v-alert border="left" dense text type="info" icon="mdi-information-box"
                         v-if="tipoSolicitudSeleccionada === 26">
                         <p class="text-subtitle-1">
                             Estos archivos pueden variar dependiendo del tipo de Beneficiario

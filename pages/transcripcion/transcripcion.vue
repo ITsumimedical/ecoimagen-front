@@ -40,7 +40,7 @@
         <template v-if="componenteAfiliado">
             <v-card elevation="0">
                 <v-container fluid>
-                    <v-alert dense text border="left" color="blue-grey" type="warning" icon="mdi-text-box-plus-outline">
+                    <v-alert dense text border="left" color="blue-grey" type="info" icon="mdi-text-box-plus-outline">
                         Proceso de
                         registro transcripción <b>(IPS externa)</b></v-alert>
                     <v-container>

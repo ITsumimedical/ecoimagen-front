@@ -2,7 +2,7 @@
     <div>
         <v-dialog v-model="mostrarModalCancelar" persistent max-width="900px">
             <v-card>
-                <v-alert dense text border="left" type="warning" class="text-center" icon="mdi-calendar-remove">
+                <v-alert dense text border="left" type="info" class="text-center" icon="mdi-calendar-remove">
                     <b>Cancelar Cita</b>
                 </v-alert>
                 <v-card-text>

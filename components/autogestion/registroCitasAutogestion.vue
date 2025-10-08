@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-alert border="left" dense text type="warning" icon="mdi-update">
+        <v-alert border="left" dense text type="info" icon="mdi-update">
             <div>
                 <b>Actualizar Datos de Contacto</b>
                 <p>

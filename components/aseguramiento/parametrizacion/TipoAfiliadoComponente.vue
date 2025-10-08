@@ -66,7 +66,7 @@
 
     <v-dialog v-model="dialogDeleteAfiliado" max-width="500px">
       <v-card :loading="loading" :disabled="loading">
-        <v-alert class="text-center" outlined text dense type="warning">¿Deseas
+        <v-alert class="text-center" outlined text dense type="info">¿Deseas
           <b>{{editedItem.estado ? 'Inactivar':'Activar'}}</b> este tipo de novedad?
         </v-alert>
         <v-card-actions>

@@ -5,7 +5,7 @@
         text
         dense
         border="left"
-        type="warning"
+        type="info"
         icon="mdi-file-document-remove"
         class="text-center"
       >

@@ -184,7 +184,7 @@
                 </v-row>
 
                 <!-- Alerta de autorización si no está marcada -->
-                <v-alert v-if="!autorizacion && mostrarProcesoRegistro" type="warning" border="left" icon="mdi-alert"
+                <v-alert v-if="!autorizacion && mostrarProcesoRegistro" type="info" border="left" icon="mdi-alert"
                     class="mt-4">
                     Debe autorizar el uso de sus datos personales para continuar.
                 </v-alert>

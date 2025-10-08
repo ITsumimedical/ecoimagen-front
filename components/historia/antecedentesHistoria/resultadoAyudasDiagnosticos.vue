@@ -92,7 +92,7 @@
 				</v-data-table>
 
 				<v-col cols="12" sm="12" md="12" v-if="datos.cita.tipo_historia_id == 1">
-					<v-alert dense type="warning" icon="mdi-information-variant" text><b>¿Al imprimir la historia
+					<v-alert dense type="info" icon="mdi-information-variant" text><b>¿Al imprimir la historia
 							clínica son requeridos
 							los registro previos a esta atención?</b></v-alert>
 					<v-radio-group v-model="impresionAyudas.imprimir_ayudas_diagnosticas" row :rules="campoRequerido">

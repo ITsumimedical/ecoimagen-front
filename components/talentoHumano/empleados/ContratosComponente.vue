@@ -153,7 +153,7 @@
                         </v-row>
                       </v-container>
                       <v-card-actions>
-                        <v-alert type="warning" text dense border="left" v-if="contrato.activo == 0">El contrato se
+                        <v-alert type="info" text dense border="left" v-if="contrato.activo == 0">El contrato se
                           encuentra <b>terminado</b>, por lo tanto no se le pueden realizar modificaciones</v-alert>
                         <v-spacer></v-spacer>
                         <v-btn small color="error" @click="close()">
@@ -493,7 +493,7 @@
                   </v-container>
                 </v-card-text>
                 <v-card-actions>
-                  <v-alert icon="mdi-alert-octagram" type="warning" dense text border="left"><i>El proceso de
+                  <v-alert icon="mdi-alert-octagram" type="info" dense text border="left"><i>El proceso de
                       terminación de contrato
                       <strong>NO</strong> se puede deshacer</i></v-alert>
                   <v-spacer></v-spacer>

@@ -6,7 +6,7 @@
           text
           dense
           border="left"
-          type="warning"
+          type="info"
           icon="mdi-calendar-alert"
           class="text-center"
         >

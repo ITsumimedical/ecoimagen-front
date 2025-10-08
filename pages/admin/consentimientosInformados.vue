@@ -136,7 +136,7 @@
 
 
 										<v-col cols="12" v-if="isEditing">
-											<v-alert text dense border="left" type="warning"
+											<v-alert text dense border="left" type="info"
 												icon="mdi-medical-bag"><b>Cups relacionados</b></v-alert>
 										</v-col>
 										<v-col cols="12" sm="8" md="8" v-if="isEditing">

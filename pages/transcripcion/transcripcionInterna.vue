@@ -54,7 +54,7 @@
     <!-- Formulario registro transcripción -->
     <template v-if="componenteAfiliado">
       <v-card>
-        <v-alert dense text border="left" color="blue-grey" type="warning" icon="mdi-text-box-plus-outline">
+        <v-alert dense text border="left" color="blue-grey" type="info" icon="mdi-text-box-plus-outline">
           <b>Proceso de registro transcripción </b>(IPS interna)</v-alert>
         <v-container>
           <v-row>
