@@ -9,7 +9,7 @@
                 <tbody>
                 <tr>
                   <td rowspan="3">
-                    <img src="@/static/images/logo.png" alt="" style="height: 80px;">
+                    <img src="@/static/images/logoEcoimagen.png" alt="" style="height: 80px;">
                   </td>
                   <td rowspan="3">
                     <h1 style="width: 703px;border-top: 10px;" class="centrar mb-5;">

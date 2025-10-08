@@ -3,7 +3,7 @@
     <!-- <v-navigation-drawer v-model="drawer" app floating class="elevation-1" :right="$vuetify.rtl" width="260">
       <template v-slot:prepend>
         <div class="d-flex pa-2 align-center">
-          <img src="/images/v-logo.png" height="48" alt="logo" class="mr-1" />
+          <img src="/images/v-logoEcoimagen.png" height="48" alt="logo" class="mr-1" />
           <div>
             <div class="title font-weight-bold text-uppercase primario--text">
               FOMAG

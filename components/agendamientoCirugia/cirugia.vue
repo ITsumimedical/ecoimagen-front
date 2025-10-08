@@ -704,7 +704,7 @@ export default {
 			const font = await pdf.embedFont(StandardFonts.Helvetica);
 			const negrita = await pdf.embedFont(StandardFonts.HelveticaBold)
 
-			// 1. Cargar el logo desde /images/logo.png
+			// 1. Cargar el logo desde /images/logoEcoimagen.png
 			const logoUrl = "/images/victoriana.png";
 			const logoBytes = await fetch(logoUrl).then(res => res.arrayBuffer());
 			const logoImage = await pdf.embedPng(logoBytes);
