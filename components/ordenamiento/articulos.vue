@@ -583,7 +583,7 @@ export default {
                     await this.abrirDialogoAlerta("Alerta Farmacológica", resultAlertas.mensaje);
                 } else {
                     // Proceder con el ordenamiento si no hay alertas
-                    // this.verificarMipresCodesumi(this.formOrdenar.articulo)
+                    this.verificarMipresCodesumi(this.formOrdenar.articulo)
                     this.procesarOrdenamiento();
                 }
 
@@ -600,26 +600,26 @@ export default {
 
         //Se verifica si el articulo esta marcado como mipres, en caso de retornar un true se muestra un swal y se abre en el navegador la pagina de mipres
         //Se reciben como parametros la entidad del afiliado y el id del codesumi
-        // verificarMipresCodesumi(codesumi) {
-        //     this.$axios.get('ordenamiento/verificar-mipres', {
-        //         params: {
-        //             entidad_afiliado: this.afiliado.entidad_id,
-        //             codesumi_id: codesumi.codesumi_id
-        //         }
-        //     }).then((res) => {
-        //         if (res.data.requiere_mipres) {
-        //             return this.$swal({
-        //                 title: "¡Atención!",
-        //                 text: "Este medicamento requiere mipres",
-        //                 type: "warning",
-        //             },
-        //                 this.irAMipres()
-        //             );
-        //         }
-        //     }).catch((error) => {
-        //         console.log(error.response.data.error)
-        //     })
-        // },
+        verificarMipresCodesumi(codesumi) {
+            this.$axios.get('ordenamiento/verificar-mipres', {
+                params: {
+                    entidad_afiliado: this.afiliado.entidad_id,
+                    codesumi_id: codesumi.codesumi_id
+                }
+            }).then((res) => {
+                if (res.data.requiere_mipres) {
+                    return this.$swal({
+                        title: "¡Atención!",
+                        text: "Este medicamento requiere mipres",
+                        type: "warning",
+                    },
+                        this.irAMipres()
+                    );
+                }
+            }).catch((error) => {
+                console.log(error.response.data.error)
+            })
+        },
 
         crearAuditoria(acepto, alertaDetalleId) {
             const data = {
