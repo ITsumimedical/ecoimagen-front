@@ -583,7 +583,7 @@ export default {
                     await this.abrirDialogoAlerta("Alerta Farmacológica", resultAlertas.mensaje);
                 } else {
                     // Proceder con el ordenamiento si no hay alertas
-                    this.verificarMipresCodesumi(this.formOrdenar.articulo)
+                    // this.verificarMipresCodesumi(this.formOrdenar.articulo)
                     this.procesarOrdenamiento();
                 }
 
